@@ -241,6 +241,11 @@ section {
 
 @media (max-width: 500px){
 
+    body {
+        align-items: start;
+        padding-top: 30px;
+    }
+
 .media-div-hide {
     display: none;
 }
