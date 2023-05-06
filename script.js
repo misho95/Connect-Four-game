@@ -84,7 +84,7 @@
                         } else if(player === `player-two`){
                             playerTwoCount++;
                         }
-                        wrap();
+                        wrap(player);
                     }
                 } 
                 // three prev check
@@ -96,7 +96,7 @@
                             } else if(player === `player-two`){
                                 playerTwoCount++;
                             }
-                            wrap();
+                            wrap(player);
                         }
                     }
                 } 
@@ -109,7 +109,7 @@
                             } else if(player === `player-two`){
                                 playerTwoCount++;
                             }
-                            wrap();
+                            wrap(player);
                         }
                     }
                 } 
@@ -122,7 +122,7 @@
                             } else if(player === `player-two`){
                                 playerTwoCount++;
                             }
-                            wrap();
+                            wrap(player);
                         }
                     }
                 }
@@ -135,7 +135,7 @@
                             } else if(player === `player-two`){
                                 playerTwoCount++;
                             }
-                            wrap();
+                            wrap(player);
                         }
                     }
                 } 
@@ -148,7 +148,7 @@
                             } else if(player === `player-two`){
                                 playerTwoCount++;
                             }
-                            wrap();
+                            wrap(player);
                         }
                     }
                 }
@@ -161,7 +161,7 @@
                             } else if(player === `player-two`){
                                 playerTwoCount++;
                             }
-                            wrap();
+                            wrap(player);
                         }
                     }
                 } 
@@ -174,7 +174,7 @@
                             } else if(player === `player-two`){
                                 playerTwoCount++;
                             }
-                            wrap();
+                            wrap(player);
                         }
                     }
                 }
@@ -258,11 +258,25 @@ const score = () => {
 score();
 
 
+const popUp = () => {
+
+    if(player === `player-two`){
+    $(`.pop-up`).html(`Player One Wins!`).removeClass(`player-two`).show().addClass(`player-one`);
+    } else if(player === `player-one`){
+        $(`.pop-up`).html(`Player Two Wins!`).removeClass(`player-one`).show().addClass(`player-two`);
+    }
+    
+    setTimeout( () => {
+        $(`.pop-up`).hide();
+    }, 1200);
+}
 
 
-const wrap = () => {
+
+const wrap = (player) => {
     restart();
     score();
+    popUp(player);
 }
 
 })();
