@@ -77,16 +77,14 @@
                         } else if(player === `player-two`){
                             playerTwoCount++;
                         }
-                        restart();
-                        score();
+                        wrap();
                     } else if(next.next().children(`:nth-child(${index})`).hasClass(player) === true){
                         if(player === `player-one`){
                             playerOneCount++;
                         } else if(player === `player-two`){
                             playerTwoCount++;
                         }
-                        restart();
-                        score();
+                        wrap();
                     }
                 } 
                 // three prev check
@@ -98,8 +96,7 @@
                             } else if(player === `player-two`){
                                 playerTwoCount++;
                             }
-                            restart();
-                            score();
+                            wrap();
                         }
                     }
                 } 
@@ -112,8 +109,7 @@
                             } else if(player === `player-two`){
                                 playerTwoCount++;
                             }
-                            restart();
-                            score();
+                            wrap();
                         }
                     }
                 } 
@@ -126,8 +122,7 @@
                             } else if(player === `player-two`){
                                 playerTwoCount++;
                             }
-                            restart();
-                            score();
+                            wrap();
                         }
                     }
                 }
@@ -140,8 +135,7 @@
                             } else if(player === `player-two`){
                                 playerTwoCount++;
                             }
-                            restart();
-                            score();
+                            wrap();
                         }
                     }
                 } 
@@ -154,8 +148,7 @@
                             } else if(player === `player-two`){
                                 playerTwoCount++;
                             }
-                            restart();
-                            score();
+                            wrap();
                         }
                     }
                 }
@@ -168,8 +161,7 @@
                             } else if(player === `player-two`){
                                 playerTwoCount++;
                             }
-                            restart();
-                            score();
+                            wrap();
                         }
                     }
                 } 
@@ -182,8 +174,7 @@
                             } else if(player === `player-two`){
                                 playerTwoCount++;
                             }
-                            restart();
-                            score();
+                            wrap();
                         }
                     }
                 }
@@ -239,7 +230,15 @@ const restart = () => {
     $(`.menu-drop-down`).hide();
 };
 
-$(`.restart-btn`).click(restart);
+
+const restartFull = () => {
+    playerOneCount = 0;
+    playerTwoCount = 0;
+    score();
+    restart();
+};
+
+$(`.restart-btn`).click( restartFull);
 
 //top menu
 
@@ -255,8 +254,15 @@ const score = () => {
     $(`.scoreTwo h1`).html(playerTwoCount);
 };
 
+
 score();
 
 
+
+
+const wrap = () => {
+    restart();
+    score();
+}
 
 })();
