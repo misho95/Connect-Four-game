@@ -78,7 +78,9 @@
                             playerTwoCount++;
                         }
                         wrap();
-                    } else if(next.next().children(`:nth-child(${index})`).hasClass(player) === true){
+                    } 
+                    
+                    if(next.next().children(`:nth-child(${index})`).hasClass(player) === true){
                         if(player === `player-one`){
                             playerOneCount++;
                         } else if(player === `player-two`){
@@ -88,7 +90,7 @@
                     }
                 } 
                 // three prev check
-                else if(prev.children(`:nth-child(${index})`).hasClass(player) === true){
+                 if(prev.children(`:nth-child(${index})`).hasClass(player) === true){
                     if(prev.prev().children(`:nth-child(${index})`).hasClass(player) === true){
                         if(prev.prev().prev().children(`:nth-child(${index})`).hasClass(player) === true){
                             if(player === `player-one`){
@@ -101,7 +103,7 @@
                     }
                 } 
                 // three next check
-                else if(next.children(`:nth-child(${index})`).hasClass(player) === true){
+                 if(next.children(`:nth-child(${index})`).hasClass(player) === true){
                     if(next.next().children(`:nth-child(${index})`).hasClass(player) === true){
                         if(next.next().next().children(`:nth-child(${index})`).hasClass(player) === true){
                             if(player === `player-one`){
@@ -114,7 +116,7 @@
                     }
                 } 
                 //check diagonal top left
-                else if(prev.children(`:nth-child(${index - 1})`).hasClass(player) === true){
+                 if(prev.children(`:nth-child(${index - 1})`).hasClass(player) === true){
                     if(prev.prev().children(`:nth-child(${index - 2})`).hasClass(player) === true){
                         if(prev.prev().prev().children(`:nth-child(${index - 3})`).hasClass(player) === true){
                             if(player === `player-one`){
@@ -127,7 +129,7 @@
                     }
                 }
                 //check diagonal bottom left
-                else if(prev.children(`:nth-child(${index + 1})`).hasClass(player) === true){
+                 if(prev.children(`:nth-child(${index + 1})`).hasClass(player) === true){
                     if(prev.prev().children(`:nth-child(${index + 2})`).hasClass(player) === true){
                         if(prev.prev().prev().children(`:nth-child(${index + 3})`).hasClass(player) === true){
                             if(player === `player-one`){
@@ -140,7 +142,7 @@
                     }
                 } 
                 //check diagonal top right
-                else if(next.children(`:nth-child(${index - 1})`).hasClass(player) === true){
+                 if(next.children(`:nth-child(${index - 1})`).hasClass(player) === true){
                     if(next.next().children(`:nth-child(${index - 2})`).hasClass(player) === true){
                         if(next.next().next().children(`:nth-child(${index - 3})`).hasClass(player) === true){
                             if(player === `player-one`){
@@ -153,7 +155,7 @@
                     }
                 }
                 //check diagonal bottom right
-                else if(next.children(`:nth-child(${index + 1})`).hasClass(player) === true){
+                 if(next.children(`:nth-child(${index + 1})`).hasClass(player) === true){
                     if(next.next().children(`:nth-child(${index + 2})`).hasClass(player) === true){
                         if(next.next().next().children(`:nth-child(${index + 3})`).hasClass(player) === true){
                             if(player === `player-one`){
@@ -166,7 +168,7 @@
                     }
                 } 
                 //horizontal top to bottom
-                else if(parent.children(`:nth-child(${index + 1})`).hasClass(player) === true){
+                 if(parent.children(`:nth-child(${index + 1})`).hasClass(player) === true){
                     if(parent.children(`:nth-child(${index + 2})`).hasClass(player) === true){
                         if(parent.children(`:nth-child(${index + 3})`).hasClass(player) === true){
                             if(player === `player-one`){

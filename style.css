@@ -56,6 +56,10 @@ body {
     background-color: var(--color-four);
 }
 
+.btns-wrap button:last-child {
+    background-color: var(--cream);
+}
+
 .logo {
     width: fit-content;
     height: fit-content;
