@@ -140,7 +140,7 @@ section {
         display: none;
 }
 
-.board .hole {
+.hole {
     width: 50px;
     height: 50px;
     border-radius: 50%;
@@ -219,4 +219,32 @@ section {
     border-radius: 15px;
     box-shadow: 0 3px 0 0 var(--color-one);
     display: none;
+}
+
+.media-div-show {
+    display: none;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+@media (max-width: 500px){
+
+.media-div-hide {
+    display: none;
+}
+
+.media-div-show {
+    display: flex;
+}
+
+.player-card {
+    padding: 30px 30px;
+}
+
+
+
+    .hole {
+        width: 30px;
+        height: 30px;
+    }
 }
