@@ -227,7 +227,6 @@ const restart = () => {
     $(`.hole`).removeClass(`player-one`).removeClass(`player-two`).removeClass(`active`);
     timer(`restart`);
     timerFirst = true;
-    $(`.menu-drop-down`).hide();
 };
 
 
@@ -239,14 +238,6 @@ const restartFull = () => {
 };
 
 $(`.restart-btn`).click( restartFull);
-
-//top menu
-
-$(`.menu-btn`).click( () => {
-    $(`.menu-drop-down`).toggle();
-});
-
-
 
 
 const score = () => {
@@ -278,5 +269,19 @@ const wrap = (player) => {
     score();
     popUp(player);
 }
+
+
+//menu
+ 
+
+$(`.playVsPlayer`).hide();
+$(`.btns-wrap`).children(`:nth-child(2)`).click( () => { 
+    $(`.menu`).hide();
+    $(`.playVsPlayer`).show(); 
+});
+$(`.menu-btn`).click( () => {
+    $(`.menu`).show();
+    $(`.playVsPlayer`).hide(); 
+});
 
 })();

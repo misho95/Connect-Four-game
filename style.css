@@ -29,6 +29,33 @@ body {
     gap: 20px;
 }
 
+
+.menu {
+    justify-content: center;
+    align-items: center;
+}
+
+.btns-wrap {
+    display: flex;
+    gap: 10px;
+}
+
+.btns-wrap button {
+    padding: 15px;
+    border-radius: 10px;
+    color: var(--color-one);
+    border: 2px solid var(--color-one);
+    box-shadow: 0 5px 0 0 var(--color-one);
+}
+
+.btns-wrap button:first-child {
+    background-color: var(--color-five);
+}
+
+.btns-wrap button:nth-child(2) {
+    background-color: var(--color-four);
+}
+
 .logo {
     width: fit-content;
     height: fit-content;
@@ -36,6 +63,8 @@ body {
     grid-template-columns: repeat(2, 15px);
     grid-template-rows: repeat(2, 15px);
     gap: 5px;
+    align-self: center;
+    justify-self: center;
 }
 
 .logo-box {
@@ -73,28 +102,6 @@ header > button:active {
     background-color: #700614;
 }
 
-.menu-btn {
-    position: relative;
-}
-
-.menu-drop-down {
-    position: absolute;
-    left: 50%;
-    top: 50px;
-    transform: translateX(-50%);
-    background-color: var(--cream);
-    color: var(--color-one);
-    padding: 10px;
-    border-radius: 15px;
-    border: 2px solid var(--color-one);
-    min-width: 200px;
-    z-index: 99;
-    display: none;
-}
-
-.menu-drop-down div {
-    padding: 5px;
-}
 
 section {
     display: flex;
@@ -247,5 +254,10 @@ section {
     .hole {
         width: 30px;
         height: 30px;
+    }
+
+    .btns-wrap {
+        flex-direction: column;
+        gap: 15px;
     }
 }
