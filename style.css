@@ -107,7 +107,7 @@ header > button:active {
 }
 
 
-section {
+.main > section {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -242,6 +242,26 @@ section {
     margin-bottom: 20px;
 }
 
+.rules {
+    width: 80%;
+    display: grid;
+    grid-template-rows: auto auto;
+    grid-template-columns: auto;
+    gap: 20px;
+}
+
+.rules > section {
+    padding: 15px;
+    background-color: var(--cream);
+    border-radius: 15px;
+    border: 2px solid var(--color-one);
+    box-shadow: 0 5px 0 0 var(--color-one);
+}
+
+.rules > section > h1,h2,p{
+    padding: 10px;
+    font-size: 20px;
+}
 @media (max-width: 500px){
 
     body {
