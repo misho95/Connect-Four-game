@@ -5,6 +5,30 @@
    let playerOneCount = 0;
    let playerTwoCount = 0;
 
+   let play;
+
+
+//menu
+ 
+
+$(`.playVsPlayer`).hide();
+//vsPlayer
+$(`.btns-wrap`).children(`:nth-child(2)`).click( () => { 
+    $(`.menu`).hide();
+    $(`.playVsPlayer`).show(); 
+    play = `vsplayer`;
+});
+//Vs Ai
+$(`.btns-wrap`).children(`:first-child`).click( () => {
+    $(`.menu`).hide();
+    $(`.playVsPlayer`).show(); 
+    play = `vsAi`;
+});
+$(`.menu-btn`).click( () => {
+    $(`.menu`).show();
+    $(`.playVsPlayer`).hide(); 
+});
+
     // hover on row show arrow on top
 
     $(`.row`).hover(hoverOn, hoverOff);
@@ -36,18 +60,27 @@
 
     $(`.row`).click(playDraw);
 
+    
     function playDraw() {
 
             if($(this).children(`:last-child`).hasClass(`active`) === false){
                 $(this).children(`:last-child`).addClass(`active`).addClass(player);
-                switchPlayer();
+                
+                    switchPlayer();
                 playerWins($(this).find(`.active`).first(), $(this));
+
+                if(play === `vsAi`) {
+                    aiMove();
+                }
             } else {
                 
                 if($(this).find(`.active`).first().prev().hasClass(`hover-line`) !== true){
                     $(this).find(`.active`).first().prev().addClass(`active`).addClass(player);
-                    switchPlayer();
+                        switchPlayer();
                     playerWins($(this).find(`.active`).first(), $(this));
+                    if(player === `vsAi`){
+                        aiMove();
+                    }
                 }
             }
 
@@ -60,7 +93,28 @@
                     timerFirst = false;
         
                 }
+            };
+
+
+
+/// AIII
+
+
+const aiMove = () => {
+    const randomNum = Math.floor(Math.random() * 7) + 1;
+        
+        if($(`.row.${randomNum}`).children(`:last-child`).hasClass(`active`) === false){
+            $(`.row.${randomNum}`).children(`:last-child`).addClass(`active`).addClass(player);
+            switchPlayer();
+        } else {    
+            if($(`.row.${randomNum}`).find(`.active`).first().prev().hasClass(`hover-line`) !== true){
+                $(`.row.${randomNum}`).find(`.active`).first().prev().addClass(`active`).addClass(player);
+                switchPlayer();
             }
+        }
+}; 
+
+
 
     // player win logic
 
@@ -273,17 +327,7 @@ const wrap = (player) => {
 }
 
 
-//menu
- 
 
-$(`.playVsPlayer`).hide();
-$(`.btns-wrap`).children(`:nth-child(2)`).click( () => { 
-    $(`.menu`).hide();
-    $(`.playVsPlayer`).show(); 
-});
-$(`.menu-btn`).click( () => {
-    $(`.menu`).show();
-    $(`.playVsPlayer`).hide(); 
-});
+
 
 })();
