@@ -210,11 +210,11 @@ header > button:active {
     background-color: var(--color-four);
     */
     color: var(--cream);
-    padding: 20px;
+    padding: 15px 20px;
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    bottom: -50px;
+    bottom: -80px;
     text-align: center;
     border-radius: 15px;
     border: 3px solid var(--color-one);
