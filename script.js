@@ -1,6 +1,8 @@
 ( () => {
 
     let player = `player-one`;
+    let game = false;
+    
  
     let playerOneCount = 0;
     let playerTwoCount = 0;
@@ -42,6 +44,7 @@
                  $(this).children(`:last-child`).addClass(`active`).addClass(player);
                  switchPlayer();
                  playerWins($(this).find(`.active`).first(), $(this));
+                 
              } else {
                  
                  if($(this).find(`.active`).first().prev().hasClass(`hover-line`) !== true){
@@ -52,7 +55,8 @@
              }
  
              display();
- 
+             
+             ifDraw();
  
                  if(timerFirst === true){
                      timer(`start`);
@@ -254,16 +258,40 @@
  const popUp = () => {
  
      if(player === `player-two`){
-     $(`.pop-up`).html(`Player One Wins!`).removeClass(`player-two`).show().addClass(`player-one`);
+     $(`.pop-up`).html(`Player One Wins!`).removeClass(`draw`).removeClass(`player-two`).show().addClass(`player-one`);
      } else if(player === `player-one`){
-         $(`.pop-up`).html(`Player Two Wins!`).removeClass(`player-one`).show().addClass(`player-two`);
+         $(`.pop-up`).html(`Player Two Wins!`).removeClass(`draw`).removeClass(`player-one`).show().addClass(`player-two`);
+     } 
+     
+     if(game === true){
+        $(`.pop-up`).html(`Draw`).removeClass(`player-one`).removeClass(`player-two`).show().addClass(`draw`);
      }
      
      setTimeout( () => {
          $(`.pop-up`).hide();
      }, 1200);
  }
- 
+
+
+
+ /// check if's Draw
+
+
+ const ifDraw = () => {
+    let draw = 0;
+    const data = $(`.row`).children(`:nth-child(2)`);
+        data.each((i, d) => {
+            if($(data[i]).hasClass(`active`)){
+                draw++;
+            }
+            if(draw === 7){
+                game = true;
+
+                popUp();
+                restart();
+            }
+        });
+ };
  
  
  const wrap = (player) => {

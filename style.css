@@ -178,6 +178,10 @@ header > button:active {
    background-color: var(--color-five) !important;
 }
 
+.draw {
+    background-color: var(--color-one);
+    color: var(--cream);
+}
 
 .player-card {
     width: fit-content;
